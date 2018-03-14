@@ -30,7 +30,16 @@ namespace Calculator_MVP
                     Result = Result * Value1;
                     break;
                 case "/":
-                    Result = Result / Value1;  //EXCEPTION!! 0!!
+                    if(Value1!=0)
+                    {
+                        Result = Result / Value1;
+                    }
+                    else
+                    {
+                        throw new Exception("You can't divide by zero!");
+
+                    }
+                     //EXCEPTION!! 0!!
                     break;
                 default:
                     Result = Value1;

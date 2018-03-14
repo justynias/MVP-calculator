@@ -40,12 +40,12 @@ namespace Calculator_MVP
 
             if (isNoEmpty(textBox))
             {
-                ShowResult(ViewEvent(sender, e));
+                ShowResult(ViewEvent(sender, e), button.Text);
 
                 textBox.Clear();
             }
             Operator = button.Text;
-            MessageBox.Show(Operator);
+           // MessageBox.Show(Operator);
         }
         private bool isNoEmpty(TextBox t)
         {
@@ -55,9 +55,16 @@ namespace Calculator_MVP
                 return false;
         }
 
-        public void ShowResult(double result)
+        public void ShowResult(double result, string newOperator)
         {
-            labelResult.Text=result.ToString();
+            if(newOperator!="=")
+            {
+                labelResult.Text = result.ToString() + newOperator;
+            }
+            else
+            {
+                labelResult.Text = result.ToString();
+            }
         }
 
         private void buttonNumberClick(object sender, EventArgs e)
